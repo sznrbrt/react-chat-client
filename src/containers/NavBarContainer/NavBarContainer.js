@@ -5,7 +5,7 @@ import './NavBarContainer.css'
 export default class NavBarContainer extends Component {
   render() {
     return(
-      <nav className="pt-navbar pt-dark">
+      <nav className="pt-navbar pt-dark pt-fixed-top">
         <div className="pt-navbar-group pt-align-left">
           <span className="nicknameTitle">NICKNAME:</span>
           <EditableText defaultValue={this.props.name} onConfirm={this.props.onChangeName} />
