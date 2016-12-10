@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './MessageContainer.css';
 import Message from '../../components/MessageContainer/Message/Message.js';
 import socket from '../../Socket';
+import $ from 'jquery';
 
 export default class MessageContainer extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class MessageContainer extends Component {
     socket.on('chat message', (msg) => {
       let _messages = this.state.messages.concat(msg);
       this.setState({ messages: _messages });
+      $("html, body").animate({ scrollTop: $(document).height() }, "slow");
     })
   }
 

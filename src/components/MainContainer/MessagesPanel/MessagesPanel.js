@@ -41,11 +41,3 @@ export default class MessagesPanel extends Component {
     }
   }
 }
-
-const messages = [
-  { from: 'Norbert', timestamp: '2016-12-10T15:28:21.044Z', content: 'What up?'},
-  { from: 'Norbert', timestamp: '2016-12-10T15:28:21.044Z', content: 'What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?'},
-  { from: 'Norbert', timestamp: '2016-12-10T15:28:21.044Z', content: 'What up?'},
-  { from: 'Norbert', timestamp: '2016-12-10T15:28:21.044Z', content: 'What up?'},
-  { from: 'Norbert', timestamp: '2016-12-10T15:28:21.044Z', content: 'What up?'},
-]
