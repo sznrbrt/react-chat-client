@@ -1,3 +1,9 @@
 .MessagesPanel {
   flex: 1;
 }
+
+.MessagesPanelAligned {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
