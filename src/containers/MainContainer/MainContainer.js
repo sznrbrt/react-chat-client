@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import './MainContainer.css';
 import InputPanel from '../../components/MainContainer/InputPanel/InputPanel';
 import MessageContainer from '../MessageContainer/MessageContainer';
-import io from 'socket.io-client';
-
-const socket = io.connect('http://localhost:1515/');
+import socket from '../../Socket'
 
 export default class MainContainer extends Component {
   constructor(props) {

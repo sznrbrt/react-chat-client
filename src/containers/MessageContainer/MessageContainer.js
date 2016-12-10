@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './MessageContainer.css';
 import Message from '../../components/MessageContainer/Message/Message.js';
-import io from 'socket.io-client';
-
-const socket = io.connect('http://localhost:1515/');
+import socket from '../../Socket';
 
 export default class MessageContainer extends Component {
   constructor(props) {
