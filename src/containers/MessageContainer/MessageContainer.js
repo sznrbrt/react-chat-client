@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './MessagesPanel.css';
-import Message from '../Message/Message.js';
+import './MessageContainer.css';
+import Message from '../../components/MessageContainer/Message/Message.js';
 import io from 'socket.io-client';
 
 const socket = io.connect('http://localhost:1515/');
 
-export default class MessagesPanel extends Component {
+export default class MessageContainer extends Component {
   constructor(props) {
     super(props)
 
@@ -41,11 +41,3 @@ export default class MessagesPanel extends Component {
     }
   }
 }
-
-const messages = [
-  { from: 'Norbert', timestamp: '2016-12-10T15:28:21.044Z', content: 'What up?'},
-  { from: 'Norbert', timestamp: '2016-12-10T15:28:21.044Z', content: 'What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?What up?'},
-  { from: 'Norbert', timestamp: '2016-12-10T15:28:21.044Z', content: 'What up?'},
-  { from: 'Norbert', timestamp: '2016-12-10T15:28:21.044Z', content: 'What up?'},
-  { from: 'Norbert', timestamp: '2016-12-10T15:28:21.044Z', content: 'What up?'},
-]
