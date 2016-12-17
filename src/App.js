@@ -14,7 +14,6 @@ class App extends Component {
 
   componentDidMount() {
     socket.on('usercount', (val) => {
-      console.log('userCount');
       this.setState({ userCount: val})
     })
   }
@@ -24,7 +23,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('C', this.state.userCount);
     return (
       <div className="App">
         <NavBarContainer name={this.state.name} onChangeName={this.changeName} count={this.state.userCount} />
