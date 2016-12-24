@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import socket from './Socket'
-import MainContainer from './containers/MainContainer/MainContainer'
-import NavBarContainer from './containers/NavBarContainer/NavBarContainer'
+import socket from './Socket';
+import NavBarContainer from './containers/NavBarContainer/NavBarContainer';
 
 class App extends Component {
   constructor(props) {
@@ -26,7 +25,8 @@ class App extends Component {
     return (
       <div className="App">
         <NavBarContainer name={this.state.name} onChangeName={this.changeName} count={this.state.userCount} />
-        <MainContainer name={this.state.name} />
+
+        {this.props.children}
       </div>
     );
   }
