@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-import socket from './Socket';
 import NavBarContainer from './containers/NavBarContainer/NavBarContainer';
+import AuthActions from './actions/AuthActions';
 
 class App extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { name: 'Anonymus', user: undefined };
+    this.state = { name: 'Anonymus', userLoggedIn: false };
     this.changeName = this.changeName.bind(this);
   }
 
+  componentWillMount() {
+    let status = AuthActions.getAuthStatus();
+    this.setState({ userLoggedIn: status });
+  }
+
   componentDidMount() {
-    socket.on('usercount', (val) => {
-      this.setState({ userCount: val})
-    })
+
   }
 
   changeName(val) {
@@ -24,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBarContainer name={this.state.name} onChangeName={this.changeName} count={this.state.userCount} />
+        <NavBarContainer name={this.state.name} onChangeName={this.changeName} count={'Unknown'} />
 
         {this.props.children}
       </div>

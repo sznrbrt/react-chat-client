@@ -1,0 +1,4 @@
+export let ActionTypes = {
+  RECEIVE_PROFILE: 'RECEIVE_PROFILE',
+  AUTHENTICATE: 'AUTHENTICATE'
+}
