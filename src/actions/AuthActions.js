@@ -8,11 +8,11 @@ const AuthActions = {
   register() {
 
   },
-  login() {
-
+  login(data) {
+    API.localLogin(data);
   },
   logout() {
-    
+
   }
 }
 

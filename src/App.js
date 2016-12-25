@@ -27,7 +27,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBarContainer name={this.state.name} onChangeName={this.changeName} count={'Unknown'} />
+        <NavBarContainer isLoggedIn={this.state.userLoggedIn} 
+          name={this.state.name} onChangeName={this.changeName} count={'Unknown'} />
 
         {this.props.children}
       </div>

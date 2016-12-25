@@ -1,3 +1,3 @@
-const remoteUrl = '//localhost:1515/';
+const remoteUrl = '//localhost:1515';
 
 export { remoteUrl }
