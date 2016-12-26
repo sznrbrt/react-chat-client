@@ -1,0 +1,6 @@
+.ConversationContainter {
+  display: flex;
+  background-color: #f0f0f0;
+  min-height: 93vh;
+  flex-direction: column;
+}

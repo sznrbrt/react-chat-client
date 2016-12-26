@@ -1,32 +1,50 @@
 import React, { Component } from 'react';
 import './App.css';
-import socket from './Socket'
-import MainContainer from './containers/MainContainer/MainContainer'
-import NavBarContainer from './containers/NavBarContainer/NavBarContainer'
+import NavBarContainer from './containers/NavBarContainer/NavBarContainer';
+import AuthActions from './actions/AuthActions';
+import AuthStore from './stores/AuthStore';
+//import UserStore from './stores/UserStore';
 
 class App extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { name: 'Anonymus' };
+    this.state = { name: 'Anonymus', userLoggedIn: false };
     this.changeName = this.changeName.bind(this);
+    this._onChange = this._onChange.bind(this);
+  }
+
+  componentWillMount() {
+    AuthActions.getAuthStatusFromLocalStorage((_user) => {
+      this.setState({ userLoggedIn: !!_user, user: _user });
+    });
   }
 
   componentDidMount() {
-    socket.on('usercount', (val) => {
-      this.setState({ userCount: val})
-    })
+    AuthStore.startListening(this._onChange);
+  }
+
+  componentWillUnmount() {
+    AuthStore.stopListening(this._onChange);
   }
 
   changeName(val) {
     this.setState({ name: val });
   }
 
+  _onChange() {
+    AuthActions.getAuthStatusFromLocalStorage((_user) => {
+      this.setState({ userLoggedIn: AuthStore.getAuthStatus(), user: _user });
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <NavBarContainer name={this.state.name} onChangeName={this.changeName} count={this.state.userCount} />
-        <MainContainer name={this.state.name} />
+        <NavBarContainer isLoggedIn={this.state.userLoggedIn}
+          user={this.state.user} count={'Unknown'} />
+
+        {this.props.children}
       </div>
     );
   }

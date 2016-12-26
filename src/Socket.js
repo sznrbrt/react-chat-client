@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
 
-let socket = io.connect('https://sznrbrt-node-chat-server.herokuapp.com/');
+let socket = io.connect('//localhost:1515/');
 
 export default socket;
