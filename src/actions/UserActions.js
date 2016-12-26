@@ -4,8 +4,8 @@ const UserActions = {
   getProfile() {
     API.getProfile();
   },
-  register() {
-
+  register(data, cb) {
+    API.localRegister(data, cb);
   },
   login(data) {
     API.localLogin(data);

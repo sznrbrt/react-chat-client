@@ -33,8 +33,9 @@ class App extends Component {
   }
 
   _onChange() {
-    console.log('_onChange');
-    this.setState({ userLoggedIn: AuthStore.getAuthStatus() });
+    AuthActions.getAuthStatusFromLocalStorage((_user) => {
+      this.setState({ userLoggedIn: AuthStore.getAuthStatus(), user: _user });
+    });
   }
 
   render() {

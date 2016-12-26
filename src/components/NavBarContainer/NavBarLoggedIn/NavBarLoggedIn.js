@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { EditableText } from '@blueprintjs/core';
 import './NavBarLoggedIn.css'
 import UserActions from '../../../actions/UserActions';
 

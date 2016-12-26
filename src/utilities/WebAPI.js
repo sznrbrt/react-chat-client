@@ -74,6 +74,25 @@ let WebAPI = {
     .catch((err) => {
       console.error(JSON.stringify(err));
     })
+  },
+  localRegister(data, cb) {
+    console.log('DATA', data);
+    fetch(`http://${remoteUrl}/data/auth/local/register`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+      body: JSON.stringify(data)
+    })
+    .then((res) => {
+      if(res.status >= 200 && res.status < 300) {
+        return cb(true);
+      } else {
+        return cb(false);
+      }
+    })
   }
 }
 export default WebAPI;

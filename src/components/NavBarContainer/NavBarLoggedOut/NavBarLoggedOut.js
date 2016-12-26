@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './NavBarLoggedOut.css';
 import UserActions from '../../../actions/UserActions';
+import { browserHistory } from 'react-router'
 
 export default class NavBarLoggedOut extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class NavBarLoggedOut extends Component {
   onLogInBtnClicked() {
     let data = this.state;
     UserActions.login(data);
+    browserHistory.push('/conversation');
   }
 
   render() {
