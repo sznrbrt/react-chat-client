@@ -15,8 +15,8 @@ class App extends Component {
   }
 
   componentWillMount() {
-    AuthActions.getAuthStatus((loggedIn) => {
-      this.setState({ userLoggedIn: loggedIn });
+    AuthActions.getAuthStatusFromLocalStorage((_user) => {
+      this.setState({ userLoggedIn: !!_user, user: _user });
     });
   }
 
@@ -33,6 +33,7 @@ class App extends Component {
   }
 
   _onChange() {
+    console.log('_onChange');
     this.setState({ userLoggedIn: AuthStore.getAuthStatus() });
   }
 
@@ -40,7 +41,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBarContainer isLoggedIn={this.state.userLoggedIn}
-          name={this.state.name} count={'Unknown'} />
+          user={this.state.user} count={'Unknown'} />
 
         {this.props.children}
       </div>

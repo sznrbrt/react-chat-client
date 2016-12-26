@@ -41,6 +41,27 @@ let WebAPI = {
       if(res.status >= 200 && res.status < 300) {
         return res.json();
       } else {
+        // Handle error here
+        console.error('ERROR', res);
+      }
+    })
+    .then((res) => {
+      console.log('res', res);
+      return ServerActions.authenticateUser(res);
+    })
+  },
+  localLogout() {
+    fetch(`http://${remoteUrl}/data/auth/local/logout`, {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+          'Content-Type': 'application/json'
+        }
+    })
+    .then((res) => {
+      if(res.status >= 200 && res.status < 300) {
+        return res;
+      } else {
         throw new Error({
           badCredentials: res.status === 401,
           unknowError: res.status !== 401
@@ -48,7 +69,7 @@ let WebAPI = {
       }
     })
     .then((res) => {
-      ServerActions.authenticateUser(res);
+      ServerActions.logoutUser(res);
     })
     .catch((err) => {
       console.error(JSON.stringify(err));

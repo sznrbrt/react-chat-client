@@ -29,7 +29,7 @@ export default class NavBarLoggedOut extends Component {
           Password:
           <input onChange={(e) => this.setState({ password: e.target.value })} className="pt-input inputBox" placeholder="Password" type="password" />
         </label>
-          <button onClick={this.onLogInBtnClicked} className="pt-button pt-minimal pt-icon-log-in">Log In</button>
+        <button onClick={this.onLogInBtnClicked} className="pt-button pt-minimal pt-icon-log-in">Log In</button>
         </div>
       </nav>
     );

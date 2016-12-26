@@ -12,8 +12,14 @@ class AuthStore extends EventEmitter {
             case ActionTypes.AUTHENTICATE:
                 if(action.data._id) {
                   _isLoggedin = true;
-                  localStorage.userid = action.data._id
+                  localStorage.user = JSON.stringify(action.data);
                 }
+                console.log(_isLoggedin);
+                this.emit("change");
+                break;
+            case ActionTypes.LOGOUT:
+                  _isLoggedin = false;
+                  localStorage.user = JSON.stringify(null);
                 this.emit("change");
                 break;
             default:

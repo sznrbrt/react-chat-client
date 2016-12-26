@@ -11,7 +11,7 @@ const UserActions = {
     API.localLogin(data);
   },
   logout() {
-
+    API.localLogout();
   }
 }
 

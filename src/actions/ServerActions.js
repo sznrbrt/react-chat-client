@@ -7,6 +7,11 @@ let ServerActions = {
       actionType: ActionTypes.AUTHENTICATE,
       data
     })
+  },
+  logoutUser() {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.LOGOUT
+    })
   }
 }
 
