@@ -1,18 +1,9 @@
 import API from '../utilities/WebAPI';
-import AuthStore from '../stores/AuthStore';
+// import AuthStore from '../stores/AuthStore';
 
 const AuthActions = {
-  getAuthStatus() {
-    return AuthStore.getAuthStatus();
-  },
-  register() {
-
-  },
-  login(data) {
-    API.localLogin(data);
-  },
-  logout() {
-
+  getAuthStatus(cb) {
+    cb(!!localStorage.userid);
   }
 }
 

@@ -10,15 +10,17 @@ class UserStore extends EventEmitter {
       AppDispatcher.register(action => {
           switch(action.actionType) {
             case ActionTypes.RECEIVE_PROFILE:
-                _profile = action.profileData;
+                _user = action.profileData;
                 this.emit("change");
                 break;
+            default:
+              break;
           }
       })
     }
 
-  getProfile() {
-    return _profile;
+  getUser() {
+    return _user;
   }
 
   startListening(cb) {

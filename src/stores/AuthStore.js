@@ -10,7 +10,10 @@ class AuthStore extends EventEmitter {
       AppDispatcher.register(action => {
           switch(action.actionType) {
             case ActionTypes.AUTHENTICATE:
-                _isLoggedin = !!action.data;
+                if(action.data._id) {
+                  _isLoggedin = true;
+                  localStorage.userid = action.data._id
+                }
                 this.emit("change");
                 break;
             default:

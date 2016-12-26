@@ -3,6 +3,7 @@ import NavBarLoggedIn from '../../components/NavBarContainer/NavBarLoggedIn/NavB
 import NavBarLoggedOut from '../../components/NavBarContainer/NavBarLoggedOut/NavBarLoggedOut';
 
 export default class NavBarContainer extends Component {
+
   render() {
     if(this.props.isLoggedIn) {
       return(

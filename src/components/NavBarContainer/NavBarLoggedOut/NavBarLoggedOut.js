@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './NavBarLoggedOut.css';
-import AuthActions from '../../../actions/AuthActions';
+import UserActions from '../../../actions/UserActions';
 
 export default class NavBarLoggedOut extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class NavBarLoggedOut extends Component {
 
   onLogInBtnClicked() {
     let data = this.state;
-    AuthActions.login(data);
+    UserActions.login(data);
   }
 
   render() {
