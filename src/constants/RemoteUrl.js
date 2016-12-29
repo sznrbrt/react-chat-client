@@ -1,3 +1,3 @@
-const remoteUrl = '//localhost:1515';
+const remoteUrl = 'https://sznrbrt-node-chat-server.herokuapp.com';
 
 export { remoteUrl }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
 import App from './App'
 import MainContainer from './containers/MainContainer/MainContainer';
 import ConversationContainer from './containers/ConversationContainer/ConversationContainer';
