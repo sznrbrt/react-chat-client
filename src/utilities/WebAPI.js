@@ -3,7 +3,7 @@ import ServerActions from '../actions/ServerActions';
 
 let WebAPI = {
   getProfile() {
-    fetch(`http://${remoteUrl}/data/user/profile/`, {
+    fetch(`${remoteUrl}/data/user/profile/`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -29,7 +29,7 @@ let WebAPI = {
     })
   },
   localLogin(data) {
-    fetch(`http://${remoteUrl}/data/auth/local/login`, {
+    fetch(`${remoteUrl}/data/auth/local/login`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -51,7 +51,7 @@ let WebAPI = {
     })
   },
   localLogout() {
-    fetch(`http://${remoteUrl}/data/auth/local/logout`, {
+    fetch(`${remoteUrl}/data/auth/local/logout`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {
@@ -77,7 +77,7 @@ let WebAPI = {
   },
   localRegister(data, cb) {
     console.log('DATA', data);
-    fetch(`http://${remoteUrl}/data/auth/local/register`, {
+    fetch(`${remoteUrl}/data/auth/local/register`, {
       method: 'POST',
       credentials: 'include',
       headers: {
