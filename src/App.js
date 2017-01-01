@@ -3,6 +3,7 @@ import './App.css';
 import NavBarContainer from './containers/NavBarContainer/NavBarContainer';
 import AuthActions from './actions/AuthActions';
 import AuthStore from './stores/AuthStore';
+import { browserHistory } from 'react-router'
 //import UserStore from './stores/UserStore';
 
 class App extends Component {
@@ -35,6 +36,9 @@ class App extends Component {
   _onChange() {
     AuthActions.getAuthStatusFromLocalStorage((_user) => {
       this.setState({ userLoggedIn: AuthStore.getAuthStatus(), user: _user });
+      if(this.state.userLoggedIn) {
+        browserHistory.push('/main');
+      }
     });
   }
 

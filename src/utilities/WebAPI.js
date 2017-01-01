@@ -28,7 +28,7 @@ let WebAPI = {
       console.error(JSON.stringify(err));
     })
   },
-  localLogin(data) {
+  localLogin(data, cb) {
     fetch(`${remoteUrl}/data/auth/local/login`, {
       method: 'POST',
       credentials: 'include',
@@ -43,11 +43,13 @@ let WebAPI = {
       } else {
         // Handle error here
         console.error('ERROR', res);
+        return false;
       }
-    })
-    .then((res) => {
-      console.log('res', res);
-      return ServerActions.authenticateUser(res);
+    }).then((res) => {
+        if(res) {
+          cb(true);
+          return ServerActions.authenticateUser(res);
+        }
     })
   },
   localLogout() {

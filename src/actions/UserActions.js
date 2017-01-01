@@ -7,8 +7,8 @@ const UserActions = {
   register(data, cb) {
     API.localRegister(data, cb);
   },
-  login(data) {
-    API.localLogin(data);
+  login(data, cb) {
+    API.localLogin(data, cb);
   },
   logout() {
     API.localLogout();

@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
 import './NavBarLoggedIn.css'
-import UserActions from '../../../actions/UserActions';
 
 export default class NavBarLoggedIn extends Component {
-  constructor(props) {
-    super(props)
-
-    this.onLogOutBtnClicked = this.onLogOutBtnClicked.bind(this);
-  }
-
-  onLogOutBtnClicked() {
-    UserActions.logout();
-  }
 
   render() {
     return(
@@ -23,7 +13,7 @@ export default class NavBarLoggedIn extends Component {
           <button className="pt-button pt-minimal pt-icon-notifications"></button>
           <button className="pt-button pt-minimal pt-icon-cog"></button>
           <span className="pt-navbar-divider"></span>
-          <button onClick={this.onLogOutBtnClicked} className="pt-button pt-minimal pt-icon-log-out">Log Out</button>
+          <button onClick={this.props.onLogOutBtnClicked} className="pt-button pt-minimal pt-icon-log-out">Log Out</button>
         </div>
       </nav>
     );
