@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBarContainer from './containers/NavBarContainer/NavBarContainer';
+import ConversationPanelContainer from './containers/ConversationPanelContainer/ConversationPanelContainer';
 import AuthActions from './actions/AuthActions';
 import AuthStore from './stores/AuthStore';
 import { browserHistory } from 'react-router'
@@ -43,14 +44,27 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <NavBarContainer isLoggedIn={this.state.userLoggedIn}
-          user={this.state.user} count={'Unknown'} />
-
-        {this.props.children}
-      </div>
-    );
+    if(this.state.userLoggedIn) {
+      return (
+        <div className="App">
+          <NavBarContainer isLoggedIn={this.state.userLoggedIn}
+            user={this.state.user} count={'Unknown'} />
+          <div className="Container">
+            <ConversationPanelContainer />
+            
+            {this.props.children}
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          <NavBarContainer isLoggedIn={this.state.userLoggedIn}
+            user={this.state.user} count={'Unknown'} />
+          {this.props.children}
+        </div>
+      );
+    }
   }
 }
 
